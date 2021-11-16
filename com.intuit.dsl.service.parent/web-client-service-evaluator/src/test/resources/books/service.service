@@ -1,0 +1,10 @@
+Service service as ServiceClient method GET {
+  Url -> @Config("endpoint")
+  Path -> ${"/books"}
+  Timeout -> ${@Config("timeout")}
+  @Header accept -> ${"application/json"}
+  @Header intuit_test -> ${requestContext.headers.intuit_test}
+  @Header "user_channel" -> ${requestContext.headers.user_channel}
+   @Query limit -> ${requestContext.arguments.limit}
+   @Query offset -> ${requestContext.arguments.offset}
+}

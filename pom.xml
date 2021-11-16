@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<scm>
+		<connection>scm:git:https://github.com/intuit/xtext-service-dsl</connection>
+		<url>https://github.com/intuit/xtext-service-dsl</url>
+		<tag>HEAD</tag>
+	</scm>
+	<groupId>com.intuit.dsl</groupId>
+	<artifactId>xtext-service-dsl</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<description>A re-usuable DSL for writing service stubs</description>
+	<url>https://github.com/intuit/xtext-service-dsl</url>
+	<packaging>pom</packaging>
+	
+	<licenses>
+		<license>
+			<name>Apache 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Ashpak Shaikh</name>
+			<id>Shaikh</id>
+			<organization>Intuit, Inc.</organization>
+			<organizationUrl>http://www.intuit.com</organizationUrl>
+		</developer>
+	</developers>
+	
+	 <properties>
+	        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	        <maven.compiler.source>11</maven.compiler.source>
+	        <maven.compiler.target>11</maven.compiler.target>
+	        <platformSystemProperties />
+	        <moduleProperties />
+	        <systemProperties />
+	        <additionalTestArguments />
+    </properties>
+	<modules>
+		<module>com.intuit.dsl.service.parent</module>
+	</modules>
+	
+	
+	<repositories>
+		<repository>
+			<id>codehaus-snapshots</id>
+			<name>disable dead 'Codehaus Snapshots' repository, see https://bugs.eclipse.org/bugs/show_bug.cgi?id=481478</name>
+			<url>http://nexus.codehaus.org/snapshots/</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+ 		<repository>
+			<id>Xtext Update Site</id>
+			<layout>p2</layout>
+			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url>
+		</repository>
+		<repository>
+			<id>cg-central</id>
+			<name>CG Central Repo</name>
+			<url>http://nexus.intuit.net/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>1.5</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+		</repository>
+	</distributionManagement></project>

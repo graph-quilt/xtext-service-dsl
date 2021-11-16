@@ -1,0 +1,63 @@
+grammar com.intuit.dsl.Service with org.eclipse.xtext.common.Terminals
+
+generate service "http://www.intuit.com/dsl/Service"
+
+Model:
+	service+=Service*
+;
+
+
+Service:
+  'Service' type=ID 'as' id=ID
+  'method' method=ServiceType '{'
+  ('Url ->' url=Atomic)?
+  ('Path ->' '${'path=Atomic'}')?
+  ('ProxyHost ->' '${'proxyhost=Atomic'}')?
+  ('ProxyPort ->' '${'proxyport=Atomic'}')?
+  ('Timeout ->' '${'timeout=Atomic'}')?
+  ('Retry ->' '${'retryCount=Atomic'}')?
+  (arguments+=ServiceArguments)*
+  (requestArguments+=RequestArgument)*
+'}'
+;
+
+
+ServiceType :
+  'GET' | 'POST' | 'PUT' | 'DELETE'
+;
+
+ServiceArguments:
+  key=ID '->' (at='@')? value=( ID | STRING )
+;
+
+RequestArgument:
+  '@'type=('Query'|'QueryParam'|'Header'|'PathParam') key=(ID | STRING) '->' '${'exp=Atomic'}'
+  | '@' type='Body' key=(ID | STRING)? '->' '${'exp=Atomic'}'
+;
+
+
+Variable:
+  schemaVariable=SchemaVariable
+;
+
+
+SchemaVariable:
+  key+=ID('.'key+=ID)*
+;
+
+  
+Property:
+  '@Config('key=STRING')'
+;
+
+LiteralExpression:
+  {StringLiteral} value=STRING |
+  {NullLiteral} value= 'null' |
+  {BooleanLiteral} value=('true'|'false')
+;
+
+Atomic returns Atomic:
+  LiteralExpression |	
+  {VariableReference} ref=Variable |
+  {PropertyExpresssion} ref=Property
+;

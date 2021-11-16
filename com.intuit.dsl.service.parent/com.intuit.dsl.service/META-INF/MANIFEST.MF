@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: com.intuit.dsl.service
+Bundle-ManifestVersion: 2
+Bundle-Name: com.intuit.dsl.service
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: com.intuit.dsl.service; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: com.intuit.dsl.service.impl,
+ com.intuit.dsl,
+ com.intuit.dsl.service.util,
+ com.intuit.dsl.validation,
+ com.intuit.dsl.services,
+ com.intuit.dsl.service,
+ com.intuit.dsl.generator,
+ com.intuit.dsl.scoping,
+ com.intuit.dsl.parser.antlr,
+ com.intuit.dsl.parser.antlr.internal,
+ com.intuit.dsl.serializer
+Import-Package: org.apache.log4j

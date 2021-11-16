@@ -1,0 +1,10 @@
+Service service as ServiceClient method POST {
+  Url -> @Config("endpoint")
+  Path -> ${"/custombody/books/{ bookId }"}
+  Timeout -> ${@Config("timeout")}
+  @PathParam bookId -> ${requestContext.arguments.id}
+  @Header accept -> ${"application/json"}
+  @Header intuit_test -> ${requestContext.headers.intuit_test}
+  @Header "user_channel" -> ${requestContext.headers.user_channel}
+  @Body -> ${requestContext.arguments.chapters}
+}
