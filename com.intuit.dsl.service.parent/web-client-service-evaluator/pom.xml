@@ -34,8 +34,8 @@
       <version>2.11.1</version>
     </dependency>
     <dependency>
-      <groupId>com.intuit.service.dsl</groupId>
-      <artifactId>com.intuit.service.dsl</artifactId>
+      <groupId>com.intuit.dsl.service</groupId>
+      <artifactId>com.intuit.dsl.service</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </dependency>
     <dependency>

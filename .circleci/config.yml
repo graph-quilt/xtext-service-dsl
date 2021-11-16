@@ -1,0 +1,29 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/xtext-service-dsl
+    docker:
+      - image: circleci/openjdk:8-jdk-stretch
+
+    steps:
+      - checkout
+      - restore_cache:
+          # ignoring target, tests, ui project POMs (very few changes, if any)
+          key: v1-deps-{{ checksum "pom.xml" }}-{{checksum "com.intuit.dsl.service.parent/pom.xml" }}-{{checksum "com.intuit.dsl.service.parent/com.intuit.dsl.service/pom.xml" }}-{{ checksum "com.intuit.dsl.service.parent/com.intuit.dsl.service.ide/pom.xml" }}
+
+      - run:
+          name: Maven Build
+          command: mvn install
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: v1-deps-{{ checksum "pom.xml" }}-{{checksum "com.intuit.dsl.service.parent/pom.xml" }}-{{checksum "com.intuit.dsl.service.parent/com.intuit.dsl.service/pom.xml" }}-{{ checksum "com.intuit.dsl.service.parent/com.intuit.dsl.service.ide/pom.xml" }}
+
+      - store_test_results:
+          path: com.intuit.dsl.service.parent/com.intuit.dsl.service.tests/target/surefire-reports
+
+workflows:
+  version: 2
+  ci_builds:
+    jobs:
+      - build

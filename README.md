@@ -1,5 +1,7 @@
 # Service DSL
 
+[Builds](https://app.circleci.com/pipelines/github/intuit/xtext-service-dsl)
+
 ## Overview
 
 The project provides an xtext-based language and runtime engine for defining and executing HTTP service stub(s).  This can be used independently or imported in other Xtext DSLs projects to add capability to make a service call. This project comes with a runtime engine based on Spring Web Client. It should be easy to come up with a runtime engine using any other java based http clients.
