@@ -1,5 +1,7 @@
 # Service DSL
 
+[![CircleCI](https://circleci.com/gh/intuit/xtext-service-dsl/tree/master.svg?style=svg)](https://app.circleci.com/pipelines/github/intuit/xtext-service-dsl)
+
 [Builds](https://app.circleci.com/pipelines/github/intuit/xtext-service-dsl)
 
 ## Overview
