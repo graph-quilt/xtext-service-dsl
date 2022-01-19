@@ -1,4 +1,4 @@
-package com.intuit.service.dsl.evaluator;
+package com.intuit.service.dsl.resource.loader;
 
 import com.google.inject.Injector;
 import com.intuit.dsl.ServiceStandaloneSetupGenerated;
