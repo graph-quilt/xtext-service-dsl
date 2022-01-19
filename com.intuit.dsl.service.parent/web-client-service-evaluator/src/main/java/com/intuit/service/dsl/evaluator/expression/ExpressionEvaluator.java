@@ -1,4 +1,4 @@
-package com.intuit.service.dsl.evaluator;
+package com.intuit.service.dsl.evaluator.expression;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.TextNode;
@@ -8,6 +8,7 @@ import com.intuit.dsl.service.SchemaVariable;
 import com.intuit.dsl.service.StringLiteral;
 import com.intuit.dsl.service.Variable;
 import com.intuit.dsl.service.VariableReference;
+import com.intuit.service.dsl.evaluator.ServiceConfiguration;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;

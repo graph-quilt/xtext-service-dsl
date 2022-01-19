@@ -1,4 +1,4 @@
-package com.intuit.service.dsl;
+package com.intuit.service.dsl.utils;
 
 import static com.intuit.service.dsl.JsonUtils.MAPPER;
 
@@ -8,13 +8,14 @@ import com.google.common.base.Charsets;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.io.Resources;
 import com.intuit.dsl.service.Service;
-import com.intuit.service.dsl.evaluator.StringContentResourceLoader;
+import com.intuit.service.dsl.JsonUtils;
+import com.intuit.service.dsl.TestServiceConfiguration;
+import com.intuit.service.dsl.resource.loader.StringContentResourceLoader;
 import com.intuit.service.dsl.evaluator.ServiceConfiguration;
 import com.intuit.service.dsl.evaluator.ServiceEvaluatorRequest;
-import com.intuit.service.dsl.evaluator.ServiceEvaluatorUtils;
-import com.intuit.service.dsl.evaluator.ServiceResourceLoader;
+import com.intuit.service.dsl.evaluator.utils.ServiceEvaluatorUtils;
+import com.intuit.service.dsl.resource.loader.ServiceResourceLoader;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import org.springframework.http.HttpCookie;
@@ -31,7 +32,7 @@ public class TestUtil {
   public static final int TIMEOUT = 1000;
   public static WebClient webClient = WebClient.builder().build();
 
-  protected static String loadResourceFromFile(String path) {
+  public static String loadResourceFromFile(String path) {
     try {
       return Resources
           .toString(Resources.getResource(path), Charsets.UTF_8);
@@ -65,7 +66,7 @@ public class TestUtil {
         .build();
   }
 
-  protected static JsonNode createRequestContext(String tid, String argumentsJson, String headersJson) {
+  public static JsonNode createRequestContext(String tid, String argumentsJson, String headersJson) {
     String transactionCtxJson = String.format("{\"test\":false,\"securityScan\":false,"
         + "\"tid\":\"%s\",\"testValueForHeader\":{\"present\":false},"
         + "\"intuit_tid\":\"empty-55ab90fa-8289-4fdf-ba36-025b774250f1\"}", tid);
@@ -95,7 +96,7 @@ public class TestUtil {
     return ImmutableMap.of("requestContext",requestContextNode);
   }
 
-  protected static ServerRequest createServerRequest() {
+  public static ServerRequest createServerRequest() {
     return MockServerRequest.builder()
         .header("intuit_test", "true")
         .cookie(new HttpCookie("testCookie", "testCookieValue"))
