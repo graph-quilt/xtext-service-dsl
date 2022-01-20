@@ -11,13 +11,16 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+import org.eclipse.xtext.testing.validation.ValidationTestHelper
+
 
 @ExtendWith(InjectionExtension)
 @InjectWith(ServiceInjectorProvider)
 class ServiceParsingTest {
 	@Inject
 	ParseHelper<Model> parseHelper
-	
+	@Inject ValidationTestHelper validateTestHelper;
+
 	@Test
 	def void loadLegacyServiceModel() {
 		val result = parseHelper.parse('''
@@ -35,4 +38,23 @@ class ServiceParsingTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
+
+	@Test
+	def void servicePOSTWithoutBody() {
+		val result = parseHelper.parse('''
+			Service service as ServiceClient method POST {
+			  Url -> @Config("endpoint")
+			  Path -> ${"/books"}
+			  Timeout -> ${@Config("timeout")}
+			  @Header accept -> ${"application/json"}
+			  @Header "user_channel" -> ${requestContext.headers.user_channel}
+			  }
+		''')
+		val issues = validateTestHelper.validate(result.eResource)
+		val issue = issues.findFirst[issue|issue.message == "Service with method 'PUT' or 'POST' should have a '@Body' defined."]
+		Assertions.assertNotNull(issue)
+		Assertions.assertEquals(1,issue.lineNumber)
+	}
+
 }
+

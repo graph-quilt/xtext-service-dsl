@@ -3,13 +3,30 @@
  */
 package com.intuit.dsl.validation;
 
+import org.eclipse.xtext.validation.Check;
+
+import com.intuit.dsl.service.Service;
 
 /**
- * This class contains custom validation rules. 
+ * This class contains custom validation rules.
  *
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
+ * See
+ * https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 public class ServiceValidator extends AbstractServiceValidator {
-	
-	
+
+	@Check
+	public void validate(Service service) {
+
+		String method = service.getMethod();
+		if (method.equals("PUT") || method.contentEquals("POST")) {
+			boolean bodyExists = service.getRequestArguments().stream().anyMatch(arg -> "Body".equals(arg.getType()));
+			if (!bodyExists) {
+				error("Service with method 'PUT' or 'POST' should have a '@Body' defined.",
+						service, service.eClass().getEStructuralFeature("id"));
+			}
+		}
+
+	}
+
 }
