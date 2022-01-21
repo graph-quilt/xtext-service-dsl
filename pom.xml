@@ -60,18 +60,6 @@
 			<layout>p2</layout>
 			<url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtextVersion}/</url>
 		</repository>
-		<repository>
-			<id>cg-central</id>
-			<name>CG Central Repo</name>
-			<url>http://nexus.intuit.net/nexus/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-				<updatePolicy>always</updatePolicy>
-			</snapshots>
-		</repository>
 	</repositories>
 
 	<profiles>
@@ -106,4 +94,5 @@
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
 		</repository>
-	</distributionManagement></project>
+	</distributionManagement>
+</project>
