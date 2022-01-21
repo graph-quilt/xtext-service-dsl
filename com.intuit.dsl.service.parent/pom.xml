@@ -1,10 +1,18 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.intuit.dsl.service</groupId>
 	<version>1.0.2-SNAPSHOT</version>
 	<artifactId>com.intuit.dsl.service.parent</artifactId>
 	<packaging>pom</packaging>
 
+	<parent>
+		<groupId>com.intuit.dsl</groupId>
+	<artifactId>xtext-service-dsl</artifactId>
+	<version>1.0.2-SNAPSHOT</version>
+	</parent>
+	
 	<properties>
 		<xtextVersion>2.25.0</xtextVersion>
 		<mwe2Version>2.12.1</mwe2Version>
@@ -26,7 +34,7 @@
 		<module>com.intuit.dsl.service.web</module>
 		<module>com.intuit.dsl.service.target</module>
 		<module>com.intuit.dsl.service.tests</module>
-        <module>com.intuit.dsl.service.ui.tests</module>
+		<module>com.intuit.dsl.service.ui.tests</module>
 		<module>web-client-service-evaluator</module>
 	</modules>
 	<dependencyManagement>
@@ -57,13 +65,13 @@
 				<extensions>true</extensions>
 			</plugin>
 			<plugin>
-                <groupId>org.eclipse.tycho</groupId>
-                <artifactId>tycho-packaging-plugin</artifactId>
-                <version>${tycho-version}</version>
-                <configuration>
-                    <strictVersions>false</strictVersions>
-                </configuration>
-            </plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<strictVersions>false</strictVersions>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -100,8 +108,8 @@
 								<id>org.eclipse.xtext.logging</id>
 								<versionRange>1.2.15</versionRange>
 							</requirement>
-							<!-- to get the org.eclipse.osgi.compatibility.state plugin if the target 
-								platform is Luna or later. (backward compatible with kepler and previous 
+							<!-- to get the org.eclipse.osgi.compatibility.state plugin if the 
+								target platform is Luna or later. (backward compatible with kepler and previous 
 								versions) see https://bugs.eclipse.org/bugs/show_bug.cgi?id=492149 -->
 							<requirement>
 								<type>eclipse-feature</type>
@@ -212,8 +220,8 @@
 											<goal>build-qualifier</goal>
 											<goal>build-qualifier-aggregator</goal>
 											<goal>validate-id</goal>
-<!-- 											<goal>validate-version</goal>
- -->										</goals>
+											<!-- <goal>validate-version</goal> -->
+										</goals>
 									</pluginExecutionFilter>
 									<action>
 										<ignore />
@@ -224,10 +232,7 @@
 					</configuration>
 				</plugin>
 				<plugin>
-					<!-- 
-						Can be removed after first generator execution
-						https://bugs.eclipse.org/bugs/show_bug.cgi?id=480097
-					-->
+					<!-- Can be removed after first generator execution https://bugs.eclipse.org/bugs/show_bug.cgi?id=480097 -->
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-compiler-plugin</artifactId>
 					<version>${tycho-version}</version>
@@ -236,17 +241,17 @@
 						<useProjectSettings>false</useProjectSettings>
 					</configuration>
 				</plugin>
-				<!-- to skip running (and compiling) tests use commandline flag: -Dmaven.test.skip
-					To skip tests, but still compile them, use: -DskipTests
-					To allow all tests in a pom to pass/fail, use commandline flag: -fae (fail
-					at end) -->
+				<!-- to skip running (and compiling) tests use commandline flag: -Dmaven.test.skip 
+					To skip tests, but still compile them, use: -DskipTests To allow all tests 
+					in a pom to pass/fail, use commandline flag: -fae (fail at end) -->
 				<plugin>
 					<groupId>org.eclipse.tycho</groupId>
 					<artifactId>tycho-surefire-plugin</artifactId>
 					<version>${tycho-version}</version>
 					<configuration>
 						<!-- THE FOLLOWING LINE MUST NOT BE BROKEN BY AUTOFORMATTING -->
-						<argLine>${platformSystemProperties} ${systemProperties} ${moduleProperties} ${additionalTestArguments}</argLine>
+						<argLine>${platformSystemProperties} ${systemProperties}
+							${moduleProperties} ${additionalTestArguments}</argLine>
 						<failIfNoTests>false</failIfNoTests>
 						<useUIHarness>false</useUIHarness>
 					</configuration>
