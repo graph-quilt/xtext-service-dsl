@@ -4,11 +4,11 @@
 	<scm>
 		<connection>scm:git:https://github.com/intuit/xtext-service-dsl</connection>
 		<url>https://github.com/intuit/xtext-service-dsl</url>
-		<tag>xtext-service-dsl-1.0.2</tag>
+		<tag>HEAD</tag>
 	</scm>
 	<groupId>com.intuit.dsl</groupId>
 	<artifactId>xtext-service-dsl</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3-SNAPSHOT</version>
 	<description>A re-usuable DSL for writing service stubs</description>
 	<url>https://github.com/intuit/xtext-service-dsl</url>
 	<packaging>pom</packaging>
