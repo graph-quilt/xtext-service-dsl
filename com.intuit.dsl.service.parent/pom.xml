@@ -44,11 +44,27 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<extensions>true</extensions>
 			</plugin>
+			<plugin>
+                <groupId>org.eclipse.tycho</groupId>
+                <artifactId>tycho-packaging-plugin</artifactId>
+                <version>${tycho-version}</version>
+                <configuration>
+                    <strictVersions>false</strictVersions>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>target-platform-configuration</artifactId>
@@ -197,8 +213,8 @@
 											<goal>build-qualifier</goal>
 											<goal>build-qualifier-aggregator</goal>
 											<goal>validate-id</goal>
-											<goal>validate-version</goal>
-										</goals>
+<!-- 											<goal>validate-version</goal>
+ -->										</goals>
 									</pluginExecutionFilter>
 									<action>
 										<ignore></ignore>
