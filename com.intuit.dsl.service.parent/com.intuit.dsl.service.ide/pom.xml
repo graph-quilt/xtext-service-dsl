@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>com.intuit.dsl.service</groupId>
 		<artifactId>com.intuit.dsl.service.parent</artifactId>
-		<version>1.0.4-SNAPSHOT</version>
+		<version>1.0.4</version>
 	</parent>
 	<artifactId>com.intuit.dsl.service.ide</artifactId>
 	<packaging>eclipse-plugin</packaging>
