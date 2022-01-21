@@ -6,12 +6,12 @@
   <parent>
     <groupId>com.intuit.dsl.service</groupId>
     <artifactId>com.intuit.dsl.service.parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
   </parent>
 
   <name>Web Client Service Evaluator</name>
   <groupId>com.intuit.dsl.service.parent</groupId>
-  <version>1.0.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <artifactId>web-client-service-evaluator</artifactId>
   <packaging>jar</packaging>
 
@@ -48,7 +48,7 @@
     <dependency>
       <groupId>com.intuit.dsl.service</groupId>
       <artifactId>com.intuit.dsl.service</artifactId>
-      <version>1.0.0</version>
+      <version>1.0.1-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.eclipse.xtext</groupId>
