@@ -29,10 +29,10 @@
 		<module>com.intuit.dsl.service</module>
 		<module>com.intuit.dsl.service.ide</module>
 		<module>com.intuit.dsl.service.ui</module>
-		<module>com.intuit.dsl.service.web</module>
 		<module>com.intuit.dsl.service.target</module>
 		<module>com.intuit.dsl.service.tests</module>
-		<module>com.intuit.dsl.service.ui.tests</module>
+<!-- 		<module>com.intuit.dsl.service.web</module>
+		<module>com.intuit.dsl.service.ui.tests</module> -->
 		<module>web-client-service-evaluator</module>
 	</modules>
 	<dependencyManagement>
