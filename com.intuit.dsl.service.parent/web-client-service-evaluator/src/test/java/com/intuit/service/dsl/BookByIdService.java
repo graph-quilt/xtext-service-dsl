@@ -52,6 +52,7 @@ public class BookByIdService {
         .reactorContext(Context.empty())
         .serviceName(Optional.empty())
         .service(service)
+        .namespace("TEST_BOOK_SVC")
         .inputMap(TestUtil.toRequestContext(bookByIdArguments,EMPTY_MAP, EMPTY_MAP))
         .build();
 
@@ -61,6 +62,7 @@ public class BookByIdService {
         .reactorContext(Context.empty())
         .serviceName(Optional.empty())
         .service(bookByIdDSLErrStringNokeyService)
+        .namespace("TEST_BOOK_SVC")
         .inputMap(TestUtil.toRequestContext(bookByIdArguments,EMPTY_MAP, EMPTY_MAP))
         .build();
 
@@ -69,6 +71,7 @@ public class BookByIdService {
     svcEvaluatorReqErrArrayNokey = ServiceEvaluatorRequest.builder()
         .reactorContext(Context.empty())
         .serviceName(Optional.empty())
+        .namespace("TEST_BOOK_SVC")
         .service(svcEvaluatorReqErrArrayNokeyService)
         .inputMap(TestUtil.toRequestContext(bookByIdMultiArguments,EMPTY_MAP, EMPTY_MAP))
         .build();
@@ -80,6 +83,7 @@ public class BookByIdService {
         .serviceName(Optional.empty())
         .service(errPathParamNotStringService)
         .inputMap(TestUtil.toRequestContext(bookByIdMultiArguments,EMPTY_MAP, EMPTY_MAP))
+        .namespace("TEST_BOOK_SVC")
         .build();
 
 
@@ -90,6 +94,7 @@ public class BookByIdService {
         .serviceName(Optional.empty())
         .service(errPathParamNullService)
         .inputMap(TestUtil.toRequestContext(bookByIdMultiArguments,EMPTY_MAP, EMPTY_MAP))
+        .namespace("TEST_BOOK_SVC")
         .build();
 
 //    final Service errNoServiceNodeService = TestUtil.getService("main/flow/service.service",
@@ -99,6 +104,7 @@ public class BookByIdService {
 //        .serviceName(Optional.empty())
 //        .service(errNoServiceNodeService)
 //        .inputMap(TestUtil.toRequestContext(bookByIdMultiArguments,EMPTY_MAP, EMPTY_MAP))
+//          .namespace("TEST_BOOK_SVC")
 //        .build();
 
     final Service getWithParamMultiArgService = TestUtil.getService("main/flow/service.service",
@@ -108,6 +114,7 @@ public class BookByIdService {
         .serviceName(Optional.empty())
         .service(getWithParamMultiArgService)
         .inputMap(TestUtil.toRequestContext(bookByIdMultiArguments,EMPTY_MAP, EMPTY_MAP))
+        .namespace("TEST_BOOK_SVC")
         .build();
 
   }

@@ -45,7 +45,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class ServiceEvaluator {
 
-  private static final String REQUEST_LOGGING_HINTS = "hints";
+  private static final String REQUEST_LOGGING_HINTS = "webclient.hints";
 
   // Constructor args
   private ServiceConfiguration serviceConfiguration;
@@ -86,6 +86,7 @@ public class ServiceEvaluator {
     getStaticProperties();
     Map<String, Object> hints = new HashMap<>(1);
     hints.put("service", serviceEvaluatorRequest.getServiceName());
+    hints.put("namespace", serviceEvaluatorRequest.getNamespace());
 
     return webClient
         .method(method)

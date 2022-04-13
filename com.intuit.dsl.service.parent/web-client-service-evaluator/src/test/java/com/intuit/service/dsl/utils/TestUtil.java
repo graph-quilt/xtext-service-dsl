@@ -59,6 +59,7 @@ public class TestUtil {
 
   public static ServiceEvaluatorRequest createServiceEvaluatorRequest(Service service, Map<String,JsonNode> inputMap, String serviceName) {
     return ServiceEvaluatorRequest.builder()
+        .namespace("TEST_SVC")
         .reactorContext(Context.empty())
         .inputMap(inputMap)
         .serviceName(Optional.ofNullable(serviceName))

@@ -29,6 +29,7 @@ public class BooksService {
         .serviceName(Optional.empty())
         .service(service)
         .inputMap(TestUtil.toRequestContext(ImmutableMap.of("limit", "10"),EMPTY_MAP, EMPTY_MAP))
+        .namespace("TEST_BOOK_SVC")
         .build();
 
     //noinspection unchecked
@@ -37,6 +38,7 @@ public class BooksService {
 //        .serviceName(Optional.empty())
 //        .service(service)
 //        .inputMap(TestUtil.toRequestContext(ImmutableMap.of("limit", "10"),EMPTY_MAP, EMPTY_MAP))
+//        .namespace("TEST_BOOK_SVC")
 //        .build();
 //
 //
@@ -45,6 +47,7 @@ public class BooksService {
 //        .cookies(Collections.EMPTY_MAP)
 //        .headers(Collections.EMPTY_MAP)
 //        .arguments(ImmutableMap.of("limit", "10"))
+//        .namespace("TEST_BOOK_SVC")
 //        .build();
 //
 //    svcEvaluatorReq4NoRequestTypeInSvcEvaluator = ServiceEvaluatorRequest.builder()
@@ -52,6 +55,7 @@ public class BooksService {
 //        .cookies(Collections.EMPTY_MAP)
 //        .headers(Collections.EMPTY_MAP)
 //        .arguments(ImmutableMap.of("limit", "10"))
+//        .namespace("TEST_BOOK_SVC")
 //        .build();
   }
 
