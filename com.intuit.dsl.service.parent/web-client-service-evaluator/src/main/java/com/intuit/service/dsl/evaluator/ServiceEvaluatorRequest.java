@@ -21,7 +21,7 @@ public class ServiceEvaluatorRequest {
   @Builder.Default
   private Optional<String> serviceName = Optional.empty();
   @NonNull
-  private String namespace;
+  private String serviceId;
   @NonNull
   private Context reactorContext;
   @NonNull

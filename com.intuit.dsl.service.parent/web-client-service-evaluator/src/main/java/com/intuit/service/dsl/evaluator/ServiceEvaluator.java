@@ -86,7 +86,8 @@ public class ServiceEvaluator {
     getStaticProperties();
     Map<String, Object> hints = new HashMap<>(1);
     hints.put("service", serviceEvaluatorRequest.getServiceName());
-    hints.put("namespace", serviceEvaluatorRequest.getNamespace());
+    hints.put("namespace", serviceEvaluatorRequest.getServiceId());
+    hints.put("serviceId", serviceEvaluatorRequest.getServiceId());
 
     return webClient
         .method(method)
