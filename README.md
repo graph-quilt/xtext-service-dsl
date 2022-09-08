@@ -1,6 +1,6 @@
 # Service DSL
 
-[Builds](https://app.circleci.com/pipelines/github/intuit/xtext-service-dsl) [![CircleCI](https://circleci.com/gh/intuit/xtext-service-dsl/tree/master.svg?style=shield)](https://app.circleci.com/pipelines/github/intuit/xtext-service-dsl)
+[Builds](https://app.circleci.com/pipelines/github/graph-quilt/xtext-service-dsl) [![CircleCI](https://circleci.com/gh/graph-quilt/xtext-service-dsl/tree/master.svg?style=shield)](https://app.circleci.com/pipelines/github/graph-quilt/xtext-service-dsl)
 
 ## Overview
 
@@ -52,7 +52,7 @@ For now, only REST Services will be supported, but we want to support GraphQL an
 *	Clone this project
 *  	Import the project in Eclipse, click File --> Import Project --> Maven --> Existing Maven Project
 *	Under `com.intuit.dsl.service`, right click on [GenerateGraphQL.mwe2] --> Run As --> MWE2 Workflow
-* 	Edit the [Grammar](https://github.com/intuit/xtext-service-dsl/blob/master/com.intuit.dsl.service/com.intuit.dsl.service/src/com/intuit/dsl/Service.xtext) and perform Step 3 again.
+* 	Edit the [Grammar](https://github.com/graph-quilt/xtext-service-dsl/blob/master/com.intuit.dsl.service/com.intuit.dsl.service/src/com/intuit/dsl/Service.xtext) and perform Step 3 again.
 
 #### -- Manually building the Eclipse plugin.
 
